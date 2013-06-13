@@ -166,7 +166,7 @@ namespace SilentOrbit.ProtocolBuffers
 
             }
 
-            throw new NotImplementedException();
+            throw new Exception();
         }
         #endregion
         #region Writer
@@ -334,7 +334,7 @@ namespace SilentOrbit.ProtocolBuffers
                 cw.WriteLine(FieldWriterType(f, "stream", "bw", "instance." + f.CsName));
                 return;
             }
-            throw new NotImplementedException("Unknown rule: " + f.Rule);
+            throw new Exception("Unknown rule: " + f.Rule);
         }
 
         static string FieldWriterType(Field f, string stream, string binaryWriter, string instance)
@@ -399,7 +399,7 @@ namespace SilentOrbit.ProtocolBuffers
                     return "global::SilentOrbit.ProtocolBuffers.ProtocolParser.WriteBytes(" + stream + ", " + instance + ");";
             }
 
-            throw new NotImplementedException();
+            throw new Exception();
         }
         #endregion
     }

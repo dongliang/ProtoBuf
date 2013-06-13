@@ -29,7 +29,7 @@ namespace SilentOrbit.ProtocolBuffers
             {
                 int r = stream.Read(buffer, read, length - read);
                 if (r == 0)
-                    throw new InvalidDataException("Expected " + (length - read) + " got " + read);
+                    throw new Exception("Expected " + (length - read) + " got " + read);
                 read += r;
             }
             return buffer;
@@ -91,7 +91,7 @@ namespace SilentOrbit.ProtocolBuffers
 
         public override void Flush()
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
 
         public override int Read(byte[] buffer, int offset, int count)
@@ -110,17 +110,17 @@ namespace SilentOrbit.ProtocolBuffers
 
         public override long Seek(long offset, SeekOrigin origin)
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
 
         public override void SetLength(long value)
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
 
         public override void Write(byte[] buffer, int offset, int count)
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
 
         public override bool CanRead
@@ -163,7 +163,7 @@ namespace SilentOrbit.ProtocolBuffers
             }
             set
             {
-                throw new NotImplementedException();
+                throw new Exception();
             }
         }
     }

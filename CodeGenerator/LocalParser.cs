@@ -22,7 +22,7 @@ namespace SilentOrbit.ProtocolBuffers
                     message.OptionExternal = true;
                     break;
                 default:
-                    throw new NotImplementedException("Unknown option: " + flag);
+                    throw new Exception("Unknown option: " + flag);
             }
         }
 
@@ -41,7 +41,7 @@ namespace SilentOrbit.ProtocolBuffers
                     message.OptionType = value;
                     break;
                 default:
-                    throw new  NotImplementedException("Unknown option: " + key);
+                    throw new  Exception("Unknown option: " + key);
             }
         }
 
@@ -56,7 +56,7 @@ namespace SilentOrbit.ProtocolBuffers
                     field.OptionReadOnly = true;
                     break;
                 default:
-                    throw new  NotImplementedException("Unknown field option: " + flag);
+                    throw new  Exception("Unknown field option: " + flag);
             }
         }
 
@@ -71,7 +71,7 @@ namespace SilentOrbit.ProtocolBuffers
                     field.OptionCodeType = value;
                     break;
                 default:
-                    throw new NotImplementedException("Unknown field option: " + key);
+                    throw new Exception("Unknown field option: " + key);
             }
         }
 
@@ -103,7 +103,7 @@ namespace SilentOrbit.ProtocolBuffers
                             else if (message is Field)
                                 ParseFieldFlags((Field)message, key);
                             else
-                                throw new NotImplementedException();
+                                throw new Exception();
                         
                             continue;
                         } else
@@ -115,7 +115,7 @@ namespace SilentOrbit.ProtocolBuffers
                             else if (message is Field)
                                 ParseFieldOption((Field)message, key, value);
                             else
-                                throw new NotImplementedException();
+                                throw new Exception();
 
                             continue;
                         }

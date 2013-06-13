@@ -102,7 +102,7 @@ namespace SilentOrbit.ProtocolBuffers
                     ProtocolParser.ReadSkipVarInt(stream);
                     return;
                 default:
-                    throw new NotImplementedException("Unknown wire type: " + key.WireType);
+                    throw new Exception("Unknown wire type: " + key.WireType);
             }
         }
 
@@ -147,7 +147,7 @@ namespace SilentOrbit.ProtocolBuffers
                 case Wire.Varint:
                     return ProtocolParser.ReadVarIntBytes(stream);
                 default:
-                    throw new NotImplementedException("Unknown wire type: " + key.WireType);
+                    throw new Exception("Unknown wire type: " + key.WireType);
             }
         }
     }

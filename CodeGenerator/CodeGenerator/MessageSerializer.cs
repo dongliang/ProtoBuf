@@ -97,7 +97,7 @@ namespace SilentOrbit.ProtocolBuffers
                     cw.Summary("Read the given number of bytes from the stream and deserialze it into the instance.");
                     cw.Bracket(m.OptionAccess + " static " + m.FullCsType + " " + method + "(Stream stream, int length, " + refstr + m.FullCsType + " instance)");
                 } else
-                    throw new NotImplementedException();
+                    throw new Exception();
 
                 if (m.IsUsingBinaryWriter)
                     cw.WriteLine("BinaryReader br = new BinaryReader(stream);");
@@ -195,7 +195,7 @@ namespace SilentOrbit.ProtocolBuffers
                 cw.Comment("Reading field ID > 16 and unknown field ID/wire type combinations");
                 cw.Switch("key.Field");
                 cw.Case(0);
-                cw.WriteLine("throw new InvalidDataException(\"Invalid field id: 0, something went wrong in the stream\");");
+                cw.WriteLine("throw new Exception(\"Invalid field id: 0, something went wrong in the stream\");");
                 foreach (Field f in m.Fields.Values)
                 {
                     if (f.ID < 16)
